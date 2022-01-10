@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+      @keyframes xxx: 创建一个指定动画名称的动画;
+      使用时需将该动画绑定到选择器上，否则动画不会产生任何效果；动画时长必须写，因为默认是0， 无动画效果
+      选择器 {
+        animation: 动画名称 动画时长
+      }
+      from: 相当于0%，动画的开始；
+      to: 相当于100%，动画的结束；
+      为了得到最佳的浏览器支持，您应该始终定义 0% 和 100% 选择器。
+      animation: 是所有动画属性的简写属性；
+      animation-fill-mode：动画播放完成时元素应用的样式；默认元素会应用动画之前的样式，通过 animation-fill-mode：forwards；可以让元素应用动画最后一帧的样式
+      animation-name: 要应用的动画名称，即@keyframes指定的动画名称；
+      animation-duration：定义动画完成一个周期需要多少秒或毫秒；默认值是0；
+      animation-delay：定义动画开始前的等待时间，默认值是0，即立即开始；如果为负值，则动画立即开始执行，执行时间为：animation-duration - |animation-delay|
+      animation-iteration-count：规定动画播放多少次， 默认为1； infinite-无限次播放
+      animation-direction：定义是否循环交替反向播放动画； 默认值normal，按正常播放；alternate-奇数次正向播放，偶数次反向播放；
+      animation-play-state: paused | running；指定动画是否正在运行或已暂停；
+  -->
+    <style>
+        @keyframes test {
+            0% {
+                background-color: blue;
+            }
+            /* 动画执行到10%,90%的时候触发 */
+            10%,
+            90% {
+                /* 向左平移1px，向上平移1px, 顺时针旋转5度 */
+                -webkit-transform: translate3d(-1px, -1px, 0) rotate(5deg);
+                transform: translate3d(-1px, -1px, 0) rotate(5deg);
+            }
+            20%,
+            80% {
+                /* 向右平移2px，向上平移4px, 逆时针旋转2度 */
+                -webkit-transform: translate3d(2px, -4px, 0) rotate(-2deg);
+                transform: translate3d(2px, -4px, 0) rotate(-2deg);
+            }
+            30%,
+            50%,
+            70% {
+                -webkit-transform: translate3d(-4px, -1px, 0) rotate(3deg);
+                transform: translate3d(-4px, -1px, 0) rotate(3deg);
+            }
+            40%,
+            60% {
+                -webkit-transform: translate3d(4px, 2px, 0) rotate(-4deg);
+                transform: translate3d(4px, 2px, 0) rotate(-4deg);
+            }
+            100% {
+                background-color: red;
+                font-size: 20px;
+                font-weight: bold;
+                text-align: center;
+            }
+        }
+        
+        div {
+            animation-name: test;
+            /* animation-delay: -2s; */
+            animation-fill-mode: forwards;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            margin: 60px auto;
+        }
+        
+        div:hover {
+            /* 鼠标移动到区域内，暂停动画播放 */
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">xxxxx</div>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content {
+            width: 400px;
+            height: 350px;
+            margin: 0px auto;
+            border: 1px solid red;
+            /* 实现水平，垂直方向上都居中 */
+            position: relative;
+        }
+        
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            /* 在X轴方向上向右平移100px */
+            /* transform: translateX(100px); */
+            /* 在Y轴方向上向下平移100px */
+            /* transform: translateY(100px); */
+            /* transform: translate(100px, 100px); */
+            /* 在X轴方向上缩放为原来的一半，Y方向上不变； */
+            /* transform: scale(0.5, 1) */
+            /* 顺时针方向上旋转90度 */
+            transform: rotate(90deg);
+            /* 实际应用：实现垂直水平都居中 */
+            position: absolute;
+            /* left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%); */
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <!-- 
+            transform: none | transformFunction 允许对元素进行旋转，平移， 缩放，倾斜等操作； 
+            坐标系： X轴向右为正向，向左为负向；Y轴向下为正向，向上为负向；
+        
+        -->
+        <div class="box">222</div>
+    </div>
+</body>
+
+</html>

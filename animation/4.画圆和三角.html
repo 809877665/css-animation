@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 
+        border-radius: 左上 右上 右下 左下
+      */
+        
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            background-color: red;
+            margin: auto;
+        }
+        
+        .circle {
+            border-radius: 50%;
+        }
+        /* 只适用于宽，高固定时 */
+        
+        .semi-circle {
+            /* border-radius：x%是相对于当前元素自身的宽高进行绘制 */
+            border-radius: 100px 100px 0 0;
+            /* 高度设为圆形宽度的一半 */
+            height: 50px;
+        }
+        
+        .sector {
+            border-radius: 100px 0 0 0;
+            /* 将宽高设为圆形宽高时的一半 */
+            height: 50px;
+            width: 50px;
+        }
+        /* 两个对角的值变，然后通过transform旋转到想要的角度位置 */
+        
+        .arc {
+            border-radius: 100px 0 100px 0;
+            transform: rotate(45deg);
+        }
+        /* 将元素的宽高设为0，通过改变边框border的粗细和颜色来绘制 */
+        
+        .triangle {
+            width: 0;
+            height: 0;
+            border-top-color: blue;
+            /* 将其他边框的颜色设置为透明 */
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+            border-left-color: transparent;
+            /* 将背景色设置为透明 */
+            background-color: transparent;
+            border-width: 40px;
+        }
+        
+        .triangles {
+            width: 0;
+            height: 0;
+            border-top-color: blue;
+            /* 将其他边框的颜色设置为透明 */
+            border-right-color: purple;
+            border-bottom-color: red;
+            border-left-color: greenyellow;
+            /* 将背景色设置为透明 */
+            background-color: transparent;
+            border-width: 40px;
+        }
+        
+        .question-box {
+            width: 200px;
+            border-radius: 15px;
+            position: relative;
+        }
+        
+        .question-box::before {
+            content: '';
+            width: 0;
+            height: 0;
+            /* 注意： 要先写border的样式，然后在写border-color的样式；否则border-color的样式会被border的样式覆盖掉； */
+            border: 15px solid red;
+            border-color: transparent;
+            border-top-color: red;
+            /* 将背景色设置为透明 */
+            background-color: transparent;
+            position: absolute;
+            bottom: -30px;
+            left: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="circle">圆形</div><br>
+    <div class="semi-circle">半圆</div><br>
+    <div class="sector">扇形</div><br>
+    <div class="arc">弧形</div><br><br>
+    <div class="triangle">倒三角</div><br><br>
+    <div class="triangles">四个三角</div><br><br><br><br>
+    <div class="question-box">疑问框</div>
+</body>
+
+</html>
