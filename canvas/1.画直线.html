@@ -21,9 +21,9 @@
         context.moveTo(20, 30);     // 开启一个新的子路劲，这个点就是新的上下文点，默认从（0,0）开始绘制；
         context.lineTo(160,30); // 以新的上下文点为起点，到指定的点之间画一个直线，x,y坐标的最大像素值是canvas定义的width,height;
         context.lineWidth = 35  // 指定直线的宽度，必须在stroke绘制之前指定，否则无效
-        context.strokeStyle = 'blue'    // 指定直线的颜色
+        context.strokeStyle = 'blue'    // 指定直线的颜色(描边)
         context.lineCap = 'butt'   // 指定直线端点的样式；Butt-直角；Round-圆角；Square-直角；Round和Square会使直线的长度增加，增加的长度为线的宽度；（注意要用小写）
-        context.stroke();   // 为画的线指定颜色并使其可汗，默认是用黑色
+        context.stroke();   // 为画的线指定颜色并使其可见，默认是用黑色
 
 
         // 是round样式
