@@ -1,0 +1,71 @@
+.coupon-item {  
+  margin: 30px auto;
+  width: 347px;
+  height: 90px;
+  background: linear-gradient(90deg, #F9D5A6 0%, #FFE4C3 29%, #FFDBAE 71%, #DAAD76 100%);
+  position: relative;
+  border-radius: 8px;
+  display: flex;
+  .img-box {
+    width: 60px;
+    height: 53px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .left {
+    width: 250px;
+    height: 100%;
+    color: red;
+    // border-right: 1px #BF9563 dashed;
+    position: relative;
+    // 实现中间处的锯齿形状，锯齿长度为4
+    &::before, &::after {
+      content: '';
+      border-bottom: 8px #FFF dotted;
+      height: 8px;
+      width: 8px;
+      z-index: 2;
+    } 
+    &::before {
+      position: absolute;
+      top: -12px;
+      right: -4px;
+    }
+    &::after {
+      position: absolute;
+      bottom: -4px;
+      right: -4px;
+    }
+  }
+  .right {
+    width: 96px;
+    height: 100%;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 7px;
+      left: 0px;
+      height: 80px;
+      width: 1px;
+      background-image: linear-gradient(180deg,#BF9563 0,#BF9563 4px,#fedaac 0,#fedaac 4px);
+      background-repeat: auto;
+      background-size: 1px 8px;
+    }
+  }
+  // 利用伪元素+border实现两端的锯齿形状
+  &::before, &::after {
+    content: '';
+    border-right: 8px #FFF dotted;
+    position: absolute;
+    top: 8px;
+    height: 100%;
+  }
+  &::before {
+    left: -3px;
+  }
+  &::after {
+    right: -3px;
+  }
+}
