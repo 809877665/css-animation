@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <canvas width="400px" height="200px" id="drawing"></canvas>
+  <script src="./index.js"></script>
+  <script>
+    /*
+      图案填充：用途-用于填充和描画图形的重复图像；
+      使用API: createPattern(p1,p2);  p1:一个<img>元素，或者一个<video>元素，或者是另一个canvas元素
+                                      p2：表示如何重复图像的字符串，取值有repeat,repeat-x,repeat-y,no-repeat；
+      使用步骤：1）使用createPattern创建图案填充对象；
+               2）将这个对象赋值给上下文对象的fillStyle属性；
+              3） 使用fill方法填充图案
+    */
+    window.onload = function() {
+      // 控制点通过分别与上下文点和终止点之间的虚拟切线控制曲线的形状
+      let myCanvas = document.getElementById('drawing')
+      let context = ''
+      if(myCanvas.getContext) {
+        context = myCanvas.getContext("2d");
+      }
+      if(context) {
+        context.beginPath()
+        let img = new Image()   // 等价于等价于 document.createElement('img')
+        img.onload = function() {
+          let pattern = context.createPattern(img, 'repeat');
+          context.rect(10,10, myCanvas.width - 20, myCanvas.height - 20)
+          context.strokeStyle = 'black'   // 设置边的颜色
+          context.lineWidth = 5;
+          context.stroke()
+          context.fillStyle = pattern
+          context.fill()
+        }
+        img.src = '../img/wood-pattern.png'
+      }
+    }
+
+  </script>
+</body>
+</html>

@@ -58,14 +58,17 @@
   &::before, &::after {
     content: '';
     border-right: 8px #FFF dotted;
+    background-size: 4px 8px;
+    background-repeat: auto;
     position: absolute;
     top: 8px;
     height: 100%;
+    width: 1px;
   }
   &::before {
-    left: -3px;
+    left: -4px;
   }
   &::after {
-    right: -3px;
+    right: -4px;
   }
 }

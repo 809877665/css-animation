@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <canvas width="500px" height="500px" id="drawing"></canvas>
+  <script src="./index.js"></script>
+  <script>
+    /*
+      线性渐变API:  渐变方向是线段；
+        1. 创建线性渐变对象： let gradient = context.createLinearGradient(x1,y1,x2,y2);
+                             (x1,y2)是开始渐变的起点坐标，（x2,y2）是结束渐变的终点坐标；
+        2. gradient.addColorStop(p1, p2)；指定渐变的色标；p1为渐变的色标位置，取值0-1，0是第一种渐变的颜色，1是最后一种渐变的颜色；
+                                                        p2为渐变的颜色值；
+    */
+    window.onload = function() {
+      // 控制点通过分别与上下文点和终止点之间的虚拟切线控制曲线的形状
+      let context = getContext('drawing')
+      if(context) {
+        context.beginPath()
+        context.moveTo(170, 80);
+        context.bezierCurveTo(130, 100, 130, 150, 230, 150);
+        context.bezierCurveTo(250, 180, 320, 180, 340, 150);
+        context.bezierCurveTo(420, 150, 420, 120, 390, 100);
+        context.bezierCurveTo(430, 40, 370, 30, 340, 50);
+        context.bezierCurveTo(320, 5, 250, 20, 250, 50);
+        context.bezierCurveTo(200, 5, 150, 20, 170, 80);
+        context.closePath();    // 绘制一条返回起点的线，
+
+        // 创建线性渐变对象
+        var grd = context.createLinearGradient(230, 0, 370, 200);
+        // 添加渐变的起点处颜色
+        grd.addColorStop(0, "#8ED6FF");
+        // grd.addColorStop(0.5, "white");
+        // 添加渐变终点处的颜色
+        grd.addColorStop(1, "#004CB3");
+
+        context.fillStyle = grd;  // 指定填充的颜色，创建的线性渐变对象
+        context.fill(); // 进行填充
+
+        context.lineWidth = 5
+        context.strokeStyle="blue"
+        context.stroke();
+      }
+    }
+
+  </script>
+</body>
+</html>

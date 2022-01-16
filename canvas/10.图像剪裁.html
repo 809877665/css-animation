@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas width="500px" height="500px" id="drawing"></canvas>
+  <script>
+    /*
+      实现对图像的裁剪: context.drawImage(imgObj, sx, sy, sw, sh, dx, dy, dw, dh);
+      参数说明：imgObj：图像对象，所以在调用drawImage()方法之前就应该加载图像
+              (sx,sy)：原图像的左顶点；sw-原图像的宽度；sh-原图像的高度；
+              (dx,dy)：目标图像的左顶点；dw-目标图像的宽度，dh-目标图像的高度；
+
+    */
+    window.onload = function () {
+      let myCanvas = document.getElementById('drawing')
+      let context = ''
+      if (myCanvas.getContext) {
+        context = myCanvas.getContext("2d");
+      }
+      if (context) {
+        let imageObj = new Image()
+        imageObj.onload = function () {
+          var sourceX = 30;
+          var sourceY = 30;
+          var sourceWidth = 80;
+          var sourceHeight = 80;
+          var destWidth = sourceWidth;
+          var destHeight = sourceHeight;
+          var destX = myCanvas.width / 2 - destWidth / 2;
+          var destY = myCanvas.height / 2 - destHeight / 2;
+          context.drawImage(imageObj, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
+        };
+        imageObj.src = '../img/1.jpg'
+      }
+
+    }
+
+  </script>
+</body>
+
+</html>

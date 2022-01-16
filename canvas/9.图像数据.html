@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas width="300px" height="300px" id="drawing"></canvas>
+  <img src="../img/1.jpg" alt="">
+  <script src="./index.js"></script>
+  <script>
+    /**
+     * let imageData = context.getImageData(x, y, width, height)；返回原始图像的数据；
+     * 参数说明：(x，y)要取的数据中第一个像素左上角的坐标；width：要取得像素宽度；height：要取得像素高度；
+     * imageData.data说明：包含图像的原始像素信息数组，每个像素在data数组中都有4个值表示，分别代表红，绿，蓝，透明度值，取值范围均是0-255
+    */
+    window.onload = function () {
+      let context = getContext('drawing')
+      if (context) {
+        let image = document.images[0]
+        context.drawImage(image, 0, 0)
+        let imageData = context.getImageData(0, 0, image.width, image.height)
+        let data = imageData.data    // 包含图像的原始像素信息数组
+        let red, green, blue, alpha, average;
+        for (let i = 0; i < data.length; i += 4) {
+          red = data[i]
+          green = data[i + 1]
+          blue = data[i + 2]
+          alpha = data[i + 3]
+
+          // 取RGB的平均值
+          average = (red + green + blue) / 3
+          data[i] = average
+          data[i + 1] = average
+          data[i + 2] = average
+        }
+        // 将修改后的数据写回到imgData并应用到画布上
+        imageData.data = data
+        context.putImageData(imageData, 0, 0)   // 得到原图的黑白版
+      }
+    }
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas width="300px" height="300px" id="drawing"></canvas>
+  <img src="../img/1.jpg" alt="">
+  <script src="./index.js"></script>
+  <script>
+    /*
+      context.drawImage(imageObj, x, y, width, height); 以指定的宽高进行图像显示；
+    */
+    window.onload = function () {
+      let context = getContext('drawing')
+      if (context) {
+        let imageObj = new Image()
+        imageObj.onload = function () {
+          context.drawImage(imageObj, 120, 120, 80, 80);  // 原图是150*150；
+        };
+        imageObj.src = '../img/1.jpg'
+      }
+
+    }
+
+  </script>
+</body>
+
+</html>

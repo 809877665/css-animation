@@ -20,6 +20,8 @@
         context.arc(300, 100, 50, 0, Math.PI, true)
         context.lineWidth = 15
         context.strokeStyle = "red"
+        context.fillStyle = '#8ED6FF'
+        context.fill()
         context.stroke()    // 描画路径
 
         // 绘制钟表
@@ -35,6 +37,8 @@
         context.strokeStyle = 'red'
         context.moveTo(390, 300)    // 不绘制线条，移动光标到(390, 300)处，内圆开始绘制的0弧度处；
         context.arc(300,300, 90, 0, 2*Math.PI, false)
+        context.fillStyle="yellow"    // 填充色为黄色
+        context.fill()    
         context.stroke()
 
         context.beginPath()

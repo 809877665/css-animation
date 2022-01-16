@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <canvas width="500px" height="500px" id="drawing"></canvas>
+  <script src="./index.js"></script>
+  <script>
+    /*
+      径向渐变（类似水波纹）API:   径向渐变与线性渐变类似，只不过渐变方向不是线段，而是两个圆之间。
+                    使用createRadialGradient() 方法创建渐变对象，参数是渐变起始圆和终止圆。；
+        1. 创建线性渐变对象： let gradient = context.createRadialGradient(x1,y1,radius1, x2,y2,radius2);
+                             (x1,y2)是开始渐变的起点坐标，（x2,y2）是结束渐变的终点坐标；
+        2. gradient.addColorStop(p1, p2)；指定渐变的色标；p1为渐变的色标位置，取值0-1，0是第一种渐变的颜色，1是最后一种渐变的颜色；
+                                                        p2为渐变的颜色值；
+    */
+    window.onload = function() {
+      // 控制点通过分别与上下文点和终止点之间的虚拟切线控制曲线的形状
+      let context = getContext('drawing')
+      if(context) {
+        context.beginPath()
+        let gradient = context.createRadialGradient(55,55,10, 55,55, 30)
+        gradient.addColorStop(0, 'red')
+        gradient.addColorStop(1, 'blue')
+
+        context.fillStyle = gradient    // 绘制渐变矩形
+        context.fillRect(30,30, 50,50)
+    
+      }
+    }
+
+  </script>
+</body>
+</html>

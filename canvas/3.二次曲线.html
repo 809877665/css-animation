@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <canvas width="500px" height="500px" id="drawing"></canvas>
+  <script src="./index.js"></script>
+  <script>
+    window.onload = function() {
+      // 控制点通过分别与上下文点和终止点之间的虚拟切线控制曲线的形状
+      let context = getContext('drawing')
+      if(context) {
+        context.beginPath()
+        context.moveTo(188, 150) // 上线文点
+        context.quadraticCurveTo(288, 0, 388, 150)    // 控制点:（288, 0）；终止点：（388, 150）
+        context.lineWidth = 10
+        context.strokeStyle = "red"
+        context.stroke()
+      }
+    }
+
+  </script>
+</body>
+</html>
