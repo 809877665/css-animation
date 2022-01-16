@@ -10,24 +10,28 @@
   <script src="./index.js"></script>
   <script>
     /*
-      绘制贝塞尔曲线使用方法 bezierCurveTo() 。每条贝塞尔曲线需要由上下文点、两个控制点和
-      一个终止点来确定。由于贝塞尔曲线有两个控制点，因此贝塞尔曲线可以比二次曲线更加的复杂多变
     */
     window.onload = function() {
       // 控制点通过分别与上下文点和终止点之间的虚拟切线控制曲线的形状
       let context = getContext('drawing')
       if(context) {
         context.beginPath()
+
         // 绘制实心的矩形，左顶点(0,0)宽为200；高为50；
-        context.fillStyle = '#ff0000'
-        context.fillRect(0, 0, 200, 100)
+        // context.fillStyle = '#ff0000'
+        // context.fillRect(0, 0, 200, 100)
+
+        // 绘制矩形轮廓
+        context.strokeStyle= 'red'
+        context.strokeRect(0, 0, 200, 100)
+        // context.clearRect(0, 0, 100, 100)   // 清除绘制矩形的一半
         
 
         context.rect(160, 160, 200, 100);    // 绘制空心的矩形
-        context.fillStyle = '#8ED6FF';    // 填空的颜色
-        context.fill();     // 进行填充
-        context.lineWidth = 5;
-        context.strokeStyle = 'red';    // 绘制线条的颜色
+        // context.fillStyle = '#8ED6FF';    // 填空的颜色
+        // context.fill();     // 进行填充
+        // context.lineWidth = 5;
+        // context.strokeStyle = 'red';    // 绘制线条的颜色
         context.stroke();
 
       }

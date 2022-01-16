@@ -18,7 +18,7 @@
         let context = drawing.getContext('2d')
         // 画直线--直角
         context.beginPath();      // 定义一个新路径绘制动作的开始
-        context.moveTo(20, 30);     // 开启一个新的子路劲，这个点就是新的上下文点，默认从（0,0）开始绘制；
+        context.moveTo(20, 30);     // 开启一个新的子路径，这个点就是新的上下文点，默认从（0,0）开始绘制；
         context.lineTo(160,30); // 以新的上下文点为起点，到指定的点之间画一个直线，x,y坐标的最大像素值是canvas定义的width,height;
         context.lineWidth = 35  // 指定直线的宽度，必须在stroke绘制之前指定，否则无效
         context.strokeStyle = 'blue'    // 指定直线的颜色(描边)

@@ -10,7 +10,7 @@
   <script src="./index.js"></script>
   <script>
     /*
-      绘制贝塞尔曲线使用方法 bezierCurveTo() 。每条贝塞尔曲线需要由上下文点、两个控制点和
+      绘制贝塞尔曲线使用方法 bezierCurveTo(x1,y1,x2,y2,x3,y3) 。每条贝塞尔曲线需要由上下文点、两个控制点和
       一个终止点来确定。由于贝塞尔曲线有两个控制点，因此贝塞尔曲线可以比二次曲线更加的复杂多变
     */
     window.onload = function() {
@@ -18,7 +18,7 @@
       let context = getContext('drawing')
       if(context) {
         context.beginPath()
-        context.moveTo(188, 130) // 上线文点
+        context.moveTo(188, 130) // 上下文点
         context.bezierCurveTo(140, 10, 388, 10, 388, 170)    
         context.lineWidth = 10
         context.strokeStyle = "red"
