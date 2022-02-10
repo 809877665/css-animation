@@ -1,3 +1,4 @@
+// 伪元素＋border:dotted；实现，缺点部分真机上不兼容；
 .coupon-item {  
   margin: 30px auto;
   width: 347px;
@@ -54,7 +55,7 @@
       background-size: 1px 8px;
     }
   }
-  // 利用伪元素+border实现两端的锯齿形状
+  // 利用伪元素+border：dotted;实现两端的锯齿形状，但是在苹果手机真机上兼容性差，会显示成方块；
   &::before, &::after {
     content: '';
     border-right: 8px #FFF dotted;

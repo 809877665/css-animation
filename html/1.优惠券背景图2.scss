@@ -1,0 +1,54 @@
+// 使用径向渐变编写；
+// MDN文档参考：https://developer.mozilla.org/zh-CN/docs/Web/CSS/gradient/radial-gradient()
+.coupon-item2 {  
+  margin: 30px auto;
+  width: 347px;
+  height: 90px;
+  background: 
+  // 左侧中间先写一个原点，让其在垂直方向上repeat
+  radial-gradient(circle at left center, #F9F9F9 4px, transparent 0px), 
+  // 右侧中间先写一个原点，让其在垂直方向上repeat
+  radial-gradient(circle at right center, #F9F9F9 4px, transparent 0), 
+  // 线性渐变的背景；从90度开始渐变，颜色-该渐变位置处的颜色；百分比-渐变位置
+  linear-gradient(90deg, #F9D5A6 0%, #FFE4C3 29%, #FFDBAE 71%, #DAAD76 100%);
+  background-size: 347px 17px;
+  background-repeat: repeat-y;
+  position: relative;
+  border-radius: 8px;
+  display: flex;
+  .img-box {
+    width: 60px;
+    height: 53px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .left {
+    width: 250px;
+    height: 100%;
+    color: red;
+    background: 
+    radial-gradient(circle at right top, #F9F9F9 4px, transparent 0px) no-repeat,
+    radial-gradient(circle at right bottom, #F9F9F9 4px, transparent 0px) no-repeat;
+  }
+  .right {
+    width: 96px;
+    height: 100%;
+    background: radial-gradient(circle at left top, #F9F9F9 4px, transparent 0px) no-repeat, 
+    radial-gradient(circle at left bottom, #F9F9F9 4px, transparent 0px) no-repeat;
+
+    position: relative;
+    // 虚线
+    &::before {
+      content: "";
+      position: absolute;
+      top: 7px;
+      left: 0px;
+      height: 80px;
+      width: 1px;
+      background-image: linear-gradient(180deg,#BF9563 0,#BF9563 4px,#fedaac 0,#fedaac 4px);
+      background-repeat: auto;
+      background-size: 1px 8px;
+    }
+  }
+}

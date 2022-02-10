@@ -1,0 +1,49 @@
+.coupon-item2 {
+  margin: 30px auto;
+  width: 347px;
+  height: 90px;
+  background: radial-gradient(circle at left center, #F9F9F9 4px, transparent 0px), radial-gradient(circle at right center, #F9F9F9 4px, transparent 0), -webkit-gradient(linear, left top, right top, from(#F9D5A6), color-stop(29%, #FFE4C3), color-stop(71%, #FFDBAE), to(#DAAD76));
+  background: radial-gradient(circle at left center, #F9F9F9 4px, transparent 0px), radial-gradient(circle at right center, #F9F9F9 4px, transparent 0), linear-gradient(90deg, #F9D5A6 0%, #FFE4C3 29%, #FFDBAE 71%, #DAAD76 100%);
+  background-size: 347px 17px;
+  background-repeat: repeat-y;
+  position: relative;
+  border-radius: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.coupon-item2 .img-box {
+  width: 60px;
+  height: 53px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.coupon-item2 .left {
+  width: 250px;
+  height: 100%;
+  color: red;
+  background: radial-gradient(circle at right top, #F9F9F9 4px, transparent 0px) no-repeat, radial-gradient(circle at right bottom, #F9F9F9 4px, transparent 0px) no-repeat;
+}
+
+.coupon-item2 .right {
+  width: 96px;
+  height: 100%;
+  background: radial-gradient(circle at left top, #F9F9F9 4px, transparent 0px) no-repeat, radial-gradient(circle at left bottom, #F9F9F9 4px, transparent 0px) no-repeat;
+  position: relative;
+}
+
+.coupon-item2 .right::before {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 0px;
+  height: 80px;
+  width: 1px;
+  background-image: linear-gradient(180deg, #BF9563 0, #BF9563 4px, #fedaac 0, #fedaac 4px);
+  background-repeat: auto;
+  background-size: 1px 8px;
+}
+/*# sourceMappingURL=1.优惠券背景图2.css.map */
